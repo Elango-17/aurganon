@@ -57,6 +57,42 @@ header .menu a{
     font-weight: 800;
 }
 /* css slider */
+.slider{
+    height: 100vh;
+    margin-top: -50px;
+    position: relative;
+}
+.slider .list .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+.slider .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slider .list .item::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+        to top, #000 40%, transparent
+    );
+}
+.slider .list .item .content{
+    position: absolute;
+    left: 10%;
+    margin-top: 10%;
+    width: 500px;
+    max-width: 80%;
+    z-index: 1;
+}
 
 .btn{
     text-decoration: none;
@@ -76,55 +112,24 @@ header .menu a{
     transform: scale(1.05);
     box-shadow: 0 0 25px var(--main-color);
 }
-.slider{
-        height: 100vh;
-        margin-top: -50px;
-        position: relative;
-        overflow: hidden;
-    }
-    .slider .list .item{
-        position: absolute;
-        inset: 0 0 0 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: .5s;
-    }
-    .slider .list .item img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .slider .list .item::after{
-        content: '';
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        background-image: linear-gradient(
-            to top, #000 40%, transparent
-        );
-    }
-    .slider .list .item .content{
-        position: absolute;
-        left: 10%;
-        top: 20%;
-        width: 500px;
-        max-width: 80%;
-        z-index: 1;
-    }
-    .slider .list .item .content p:nth-child(1){
-        text-transform: uppercase;
-        letter-spacing: 10px;
-    }
-    .slider .list .item .content h2{
-        font-size: 70px;
-        margin: 0;
-    }
-    .slider .list .item.active{
-        opacity: 1;
-        z-index: 10;
-    }
+.text-animation{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+
+}
+.slider .list .item .content p:nth-child(1){
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+.slider .list .item .content h2{
+    font-size: 80px;
+    margin: 0;
+}
+.slider .list .item.active{
+    opacity: 1;
+    z-index: 10;
+}
 @keyframes showContent {
     to{
         transform: translateY(0);
@@ -202,6 +207,7 @@ header .menu a{
 .thumbnail .item .content{
     position: absolute;
     inset: auto 10px 10px 10px;
+    font-weight: 300;
 }
 @media screen and (max-width: 678px) {
     .thumbnail{
@@ -223,9 +229,6 @@ header .menu a{
     }
 }
 @media screen and (max-width:480px) {
-    .html{
-        overflow: hidden;
-    }
     header .logo{
         font-size: 1rem ;
         margin-left: 1.4rem;
